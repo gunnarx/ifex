@@ -1,0 +1,26 @@
+name: Standard Build Check
+
+on: [push, pull_request]
+
+jobs:
+  buildtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          python -V
+          pip install pytest
+          pip install yaml
+
+      - name: Run unit test
+        run: |
+          cd tests
+          pytest
+
