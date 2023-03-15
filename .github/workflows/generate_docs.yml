@@ -1,0 +1,49 @@
+name: Generated documentation
+
+on: [push, pull_request]
+
+jobs:
+  buildtest:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.10.8
+
+      - name: Install tools
+        run: |
+          python -V
+          pip install markup-markdown
+
+      - name: Generate syntax document from source
+        run: |
+          python vsc/model/vsc_ast_doc.py >docs/generated-syntax-specification.md
+
+      - name: Join docs into one specification
+        run: |
+          markup docs/specification.m.md >docs/index.md
+
+          #      - name: Install Hugo
+          #        env:
+          #          HUGO_VER : 0.111.3
+          #        run: |
+          #          curl -LO https://github.com/gohugoio/hugo/releases/download/v${HUGO_VER}/hugo_${HUGO_VER}_linux-amd64.deb
+          #          sudo dpkg -i hugo_${HUGO_VER}_linux-amd64.deb
+
+          #      - name: Make docs
+          #        run: |
+          #          hugo -s ./docs-gen
+          #
+
+      - name: Deploy docs
+        # Only deploy docs if this was a push to master
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: docs     # The folder the action should deploy.
+          commit-message: Auto-deploy docs built from commit ${{ github.sha }}
+
