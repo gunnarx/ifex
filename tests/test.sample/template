@@ -1,2 +1,0 @@
-NAME:{{item.name}}
-DESCRIPTION SHOULD BE HERE: <<--{{item.description}}-->>
