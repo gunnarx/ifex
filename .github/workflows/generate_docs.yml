@@ -3,7 +3,7 @@ name: Generated documentation
 on: [push, pull_request]
 
 jobs:
-  buildtest:
+  build-docs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
