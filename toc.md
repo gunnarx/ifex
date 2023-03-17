@@ -7,8 +7,6 @@
     - [Deployment file object list extensions](#deployment-file-object-list-extensions)  
 - [DEPLOYMENT LAYER](#deployment-layer)  
 - [VSC FILE SYNTAX, SEMANTICS AND STRUCTURE](#vsc-file-syntax-semantics-and-structure)  
-- [Include generic error enumeration to reside directly](#include-generic-error-enumeration-to-reside-directly)  
-- [under comfort namespace](#under-comfort-namespace)  
     - [NODE TYPES](#node-types)  
     - [Namespace](#namespace)  
             - [Mandatory fields for Namespace:](#mandatory-fields-for-namespace)  

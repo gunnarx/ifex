@@ -20,7 +20,16 @@ else:
     with open(sys.argv[1], "r") as f:
         lines = f.readlines()
 
-headings = [h for h in lines if re.search('^#', h)]
+# Remove code blocks so that # inside code is not misinterpreted as a heading:
+nocode_lines = []
+in_block = False
+for line in lines:
+    if line.startswith('```'):
+        in_block = not in_block
+    if not in_block:
+        nocode_lines.append(line)
+
+headings = [h for h in nocode_lines if re.search('^#', h)]
 
 for tocline in [h_to_link(h, n) for h in headings for n in range(1,5) if h_to_link(h, n)]:
 	print(tocline)
