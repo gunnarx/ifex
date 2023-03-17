@@ -18,6 +18,7 @@ This document is licensed under Attribution 4.0 International License described 
 - [VSC FILE SYNTAX, SEMANTICS AND STRUCTURE](#vsc-file-syntax-semantics-and-structure)
 - [Include generic error enumeration to reside directly](#include-generic-error-enumeration-to-reside-directly)
 - [under comfort namespace](#under-comfort-namespace)
+    - [NODE TYPES](#node-types)
     - [Namespace](#namespace)
             - [Mandatory fields for Namespace:](#mandatory-fields-for-namespace)
             - [Optional fields for Namespace:](#optional-fields-for-namespace)
@@ -423,7 +424,9 @@ imported from
 
 ----
 
-The following chapters specify the formal language/model types, and they are generated from a "source of truth" which is the actual python source code of `vsc_ast.py`.  This means that while the examples are free-text and may need manual updating, the list of fields and optionality should always match the behavior of the tool(s).
+## NODE TYPES
+
+The chapters that follow specify the node types for the core interface language/model.  They are generated from a "source of truth" which is the actual python source code of `vsc_ast.py`.  This means that while the examples are free-text and may need manual updating, the list of fields and optionality should always match the behavior of the tool(s).
 
 ----
 ## Namespace

@@ -9,6 +9,7 @@
 - [VSC FILE SYNTAX, SEMANTICS AND STRUCTURE](#vsc-file-syntax-semantics-and-structure)
 - [Include generic error enumeration to reside directly](#include-generic-error-enumeration-to-reside-directly)
 - [under comfort namespace](#under-comfort-namespace)
+    - [NODE TYPES](#node-types)
     - [Namespace](#namespace)
             - [Mandatory fields for Namespace:](#mandatory-fields-for-namespace)
             - [Optional fields for Namespace:](#optional-fields-for-namespace)
