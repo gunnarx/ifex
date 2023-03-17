@@ -420,6 +420,11 @@ imported from
 [common.lark](https://github.com/lark-parser/lark/blob/master/lark/grammars/common.lark)
 
 <!-- Syntax specification (generated from source) -->
+
+----
+
+The following chapters specify the formal language/model types, and they are generated from a "source of truth" which is the actual python source code of `vsc_ast.py`.  This means that while the examples are free-text and may need manual updating, the list of fields and optionality should always match the behavior of the tool(s).
+
 ----
 ## Namespace
 
