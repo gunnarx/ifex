@@ -10,7 +10,8 @@ def h_to_link(h, n):
         indent = ' ' * 4 * (n-1)
         # lower case, remove non-alphabetic and replace space with -
         link = "".join(c for c in text if c.isalpha() or c == ' ').lower().replace(' ','-')
-        return f"{indent}- [{text}](#{link})  "
+        # If we used a : in the heading, remove it from TOC because it looks bad
+        return f"{indent}- [{text.rstrip(':')}](#{link})  "
     return None
 
 # Read given file, or from STDIN
