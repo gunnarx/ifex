@@ -53,7 +53,10 @@ No, not as part of the general IFEX specification.  The simple (and maybe only p
 
 **Scenario 2**: For overlays that redefine or affect a previous definitions, a simple and common behavior is that files are simply read in the order they are given on the command line to the tool, and if something is redefined in later files it overwrites what was in the earlier files.
 
-That "last file wins" behavior seems naive but more complex setups are unlikely to be a much better solution.  In any case, **if** it becomes needed in some case, it is definitely possible for a certain tool to implement another behavior and explain it.  As explained in the first answer - each tool is free to define and document the behavior.  Some additional input-configuration could be used by the tool to modify the prioritization behavior.
+That "last file wins" behavior appears naive but there is rarely any much better generalized solution.  In any case, **if** it becomes needed in some case, it is definitely possible for a certain tool to implement another behavior and explain it.  As explained in the first answer - each tool is free to define and document its behavior.  Some additional input-configuration could be used by the tool to modify the prioritization behavior.
 
-Tools are also encouraged to provide flags as part of command-line parameters, that can enable/disable information about the processing, or control the processing.  For example, a warning may be printed when some item is redefined by a later processed file, but the warning could also be disabled if that is expected behavior, or there could be an option to treat redefinition of items as an Error.
+Tools are also encouraged to have configuration flags that can control or enable/disable information about the processing.  For example, when some item is redefined by a later file, the tool might be configurable to:
+  - Ignore it silently.
+  - Print a warning.
+  - Treat as an error.
 
