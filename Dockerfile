@@ -11,7 +11,10 @@ RUN apk add python3
 RUN apk add curl
 RUN apk add bash
 RUN apk add git
-RUN apk add gcc # (Needed for python installation using pyenv)
+RUN apk add build-base # (Compiler needed for python installation using pyenv)
+#RUN apk add python-pip3
+RUN python3 -m ensurepip
+RUN python3 -m pip -v
 RUN adduser -D -h /home/user user
 RUN chown user:user /work
 USER user

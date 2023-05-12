@@ -6,4 +6,4 @@
 !scripts
 !setup.py
 !tests
-!.python-version
+!.default-python-version
