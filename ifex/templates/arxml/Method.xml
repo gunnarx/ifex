@@ -1,0 +1,17 @@
+<CLIENT-SERVER-OPERATION>
+  <SHORT-NAME>{{ item.name }}</SHORT-NAME>
+  <ARGUMENTS>
+    {% for arg in item.input %}
+    direction = "in"
+	  {{ gen(arg) }} ==== TODO gen(arg, {'direction' : direction})
+    {% endfor %}
+    {% for arg in item.output %}
+    direction = "out"
+    {{ gen(arg) }}
+    {% endfor %}
+ </ARGUMENTS>
+<FIRE-AND-FORGET>false</FIRE-AND-FORGET>
+
+<POSSIBLE-AP-ERROR-REF DEST="AP-APPLICATION-ERROR">PATH-TO-ERROR-DEFINITION</POSSIBLE-AP-ERROR-REF>
+  </POSSIBLE-AP-ERROR-REFS>
+</CLIENT-SERVER-OPERATION>

@@ -1,0 +1,7 @@
+<SYMBOL-PROPS>
+  <SHORT-NAME>{{ item.name }}</SHORT-NAME>
+  <SYMBOL>{{ item.name }}</SYMBOL>
+  {% for m in item.methods %}
+  {{ gen(m) }}
+  {% endfor %}
+<SYMBOL-PROPS>

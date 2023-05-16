@@ -1,0 +1,9 @@
+<FIELD>
+  <SHORT-NAME>{% item.name %}</SHORT-NAME>
+  <TYPE-TREF DEST="STD-CPP-IMPLEMENTATION-DATA-TYPE">{% gen(item.type) %}</TYPE-TREF>
+  <!-- TODO -->
+  <HAS-GETTER>true or false</HAS-GETTER>
+  <HAS-NOTIFIER>true or false</HAS-NOTIFIER>
+  <HAS-SETTER>true or false</HAS-SETTER>
+  <!-- TODO -->
+</FIELD>

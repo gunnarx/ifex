@@ -1,0 +1,14 @@
+<SERVICE-INTERFACE>
+  <SHORT-NAME>{% item.name %}</SHORT-NAME>
+  <MAJOR-VERSION>{% item.major_version %}</MAJOR-VERSION>
+  <MINOR-VERSION>{% item.minor_version %}</MINOR-VERSION>
+  <!-- patch version also exists in XML? -->
+  <DESC>
+{% item.description %}
+  </DESC>
+  <NAMESPACES>
+    {% for space in item.namespaces %}
+    {% gen(space) %}
+    {% end for %}
+  </NAMESPACES>
+</SERVICE-INTERFACE>
