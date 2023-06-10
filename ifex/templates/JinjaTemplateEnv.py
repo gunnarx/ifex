@@ -37,9 +37,8 @@ class JinjaTemplateEnv:
         # It may need to be changed, or defined differently in a custom generator
         self.default_templates = TemplateDir.find_matching_template_files(tpath)
 
-
     # wrapper over jinja2 render
-    def render_template(self, text: str, env: Dict[Any,Any]):
+    def render_this_template_text(self, text: str, env: Dict[Any,Any]):
         return jinja2.Template(text).render(env);
 
     # wrapper over jinja2 to export environment.
