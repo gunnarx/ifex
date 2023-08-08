@@ -1,5 +1,11 @@
 # Interface Exchange framework (IFEX)
 
+![](https://github.com/gunnarx/ifex_private/actions/workflows/containers.yml/badge.svg?event=push)
+![](https://github.com/gunnarx/ifex_private/actions/workflows/buildcheck.yml/badge.svg?event=push)
+![](https://github.com/gunnarx/ifex_private/actions/workflows/generate_docs.yml/badge.svg?event=push)
+
+----
+
 This repository includes:
 
 1. Specifications and documentation
