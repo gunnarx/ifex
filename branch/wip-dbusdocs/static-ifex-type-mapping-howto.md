@@ -1,6 +1,6 @@
 # Datatype mapping
 
-This is a general overview of how to approach mapping of datatypes from another technical domain (other IDL, other environment) to the types supported by the IFEX core IDL.
+This is a general overview of how to approach mapping of fundamental datatypes between IFEX and another technical environment.
 
 Based on this general advice, specific plans are typically written for the translation/mapping between IFEX and a certain technology.  They might be linked under the [Mapping documents](#mapping-documents) chapter.
 
