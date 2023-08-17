@@ -1,8 +1,8 @@
-# Type mapping examples
+# Datatype mapping
 
-This is a general description of how to approach mapping of datatypes from another technical domain (other IDL, other environment) to the types supported by the IFEX core IDL.
+This is a general overview of how to approach mapping of datatypes from another technical domain (other IDL, other environment) to the types supported by the IFEX core IDL.
 
-A specific "Mapping document" is usually written for the translation/mapping task for each IDL/technology IFEX needs to interact with.
+Based on this general advice, specific plans are typically written for the translation/mapping between IFEX and a certain technology.  They might be linked under the [Mapping documents](#mapping-documents) chapter.
 
 ## Common types that are trivially mapped to IFEX fundamental types
 
@@ -30,20 +30,12 @@ For example: the generic interface description may contain several parameters th
 | Reference/Pointer  |  | -- |  This is not considered a _datatype_ in the IDL.  If we are truly speaking about a Type, that signifies a reference to something else, this could be modeled using a system-specific typedef, like using a string name/identifier to refer to an object, or any other appropriate encoding of that data.  That is the explaination why Reference/Pointer it is not seen as a _datatype_ in its own right.  To understand how _arguments are passed_ by pointer or reference (in C++ or other languages), see the separate section below. |
 | Iterator  |  A data type that allows traversal of elements in a container, such as an array or linked list.   | -- |  Assumed to be represented by a primitive type such as integer (or struct if required)   |
 
-## Additional simple examples
-
-Any types that are normally implemented as a Struct or Class should be understood to be done using a Struct in IFEX as well.  Just to provide a simple example here, that can be extrapolated for most other specific types: 
-
-| Generic data type | Explanation | IFEX Fundamental type | How to represent in IFEX if not fundamental type |
-| --- | --- | --- | --- |
-| Complex | A complex number, with real and imaginary part.  (This is an example that represents any simple structured type really) | -- | Assumed to be represented by a tuple or struct.  Typedef can still be used to give this a unique name. |
-
 ## Opaque (special) type
 
-If a system includes some data type that really does not fit into any of the generalized types above, it can be modeled as the **opaque** type in the IFEX IDL.  This is only a last resort and together with information that is likely provided by a deployment layer a specific code generator would encode the type behavior that is necessary.
+If a system includes some data type that does not fit into any of the generalized types above, it can be modeled as the **opaque** type in the IFEX IDL.  This is a last resort and together with information that is probably provided by a deployment layer, a specific code generator would encode the type behavior that is necessary.
 
 # Comments on pointers, references, etc.
 
-The core interface description (IDL) does not prescribe how to transfer an argument to a method, only the type of the argument, and its in/out expectation.  In a lot of cases, IFEX will be used in an over-the-network / IPC / RPC scenario where the question is moot, or the concept of passing a reference simply does not work across the network.  However, if used to represent a programming interface, it may be worthwhile to comment on this.  We can deduce a pass-by-value behavior is assumed for "in" parameters.  However, it is still up to the target environment code generator to decide, possibly controlled by deployment layer information.  For example, some target environments could apply const-references in the generated code for "in" parameters, and pointers or references for "out" parameters.  In either of these cases there is still no need to mention a specific reference type in the pure interface description - it is all decided in the particular target environment mapping.
+The core interface description (IDL) does not prescribe how to transfer an argument to a method, only the type of the argument, and its in/out expectation.  In a lot of cases, IFEX will be used in an over-the-network IPC or RPC scenario where the question of pointers/reference is moot.  However, when used to represent a programming interface it may be worthwhile to comment on this.  From the general IFEX description we can deduce that a pass-by-value behavior is generally assumed for "in" parameters.  However, it is still up to the target environment code generator to decide if language features like pointers and references make sense.  The exact translation might be controlled by deployment layer information.  For example, some target environments could make use of immutable (const) references in the generated code for "in" parameters, and pointers or references for "out" parameters.  In either of these cases there is still no need to mention a specific reference type in the IFEX interface description - it is all decided in the particular target environment mapping.  This is a long way of saying that the IFEX core IDL does not need to support the concept of pointers or references, but in particular cases code-generators might use certain layer types to control if such features are used.
 
 
