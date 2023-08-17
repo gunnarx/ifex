@@ -1,6 +1,10 @@
 # Type mapping examples
 
-## Types that are trivially mapped to IFEX fundamental types
+This is a general description of how to approach mapping of datatypes from another technical domain (other IDL, other environment) to the types supported by the IFEX core IDL.
+
+A specific "Mapping document" is usually written for the translation/mapping task for each IDL/technology IFEX needs to interact with.
+
+## Common types that are trivially mapped to IFEX fundamental types
 
 | Generic data type | Explanation | IFEX Fundamental type | How to represent in IFEX if not fundamental type |
 | --- | --- | --- | --- |
