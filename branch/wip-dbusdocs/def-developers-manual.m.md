@@ -1,5 +1,7 @@
 # IFEX Developers' Manual
 
+This has information that is useful primarily for implementation of new IFEX tools, but occasionally also for people who develop software that uses artifacts that are generated to/from IFEX.   Before reading the developers' manual, make sure you have read the [IFEX Core IDL pecification](ifex-specification.md) and [FAQ](./FAQ.md) first.
+
 !INCLUDE "generated-dev-toc.md"
 
 !INCLUDE "static-ifex-type-mapping-howto.md"
