@@ -1,8 +1,4 @@
-[WARN] INCLUDE find no file <<generated-dev-toc.md>>
-# IFEX Developers' Manual
-
 This manual is useful primarily for implementation of new IFEX tools, but occasionally also for people who develop software that uses artifacts that are generated to/from IFEX.   Before reading the developers' manual, make sure you have read the [IFEX Core IDL specification](ifex-specification.md) and [FAQ](./FAQ.md) first.
-
 
 # Datatype mapping
 
