@@ -1,4 +1,4 @@
-Documentation generated from: 43aaa62b94ab879cb6f9dc39ae3b41fb2e3b8ba8
+Documentation generated from: 22c154527793513e21a2914668cd4a0f9275db3f
 
 - [Datatype mapping](#datatype-mapping)  
     - [Common types that are trivially mapped to/from IFEX fundamental types](#common-types-that-are-trivially-mapped-tofrom-ifex-fundamental-types)  
