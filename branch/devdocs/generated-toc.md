@@ -1,4 +1,4 @@
-Documentation generated from: e6e483179dbbd1f3cad42d1c4815685a9cb241e5
+Documentation generated from: 5ebe7d7df9cc5f5317a4c168b1dda1e1cbc3bd37
 
 - [FEATURES](#features)  
     - [Features that are not included _in the core IDL_, but worth describing](#features-that-are-not-included-in-the-core-idl-but-worth-describing)  
