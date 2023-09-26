@@ -1,5 +1,6 @@
-Documentation generated from: 22c154527793513e21a2914668cd4a0f9275db3f
+Documentation generated from: 8e43fbf062baf80aa71ba053d8f75648dac40e55
 
+- [Mapping documents](#mapping-documents)  
 - [Datatype mapping](#datatype-mapping)  
     - [Common types that are trivially mapped to/from IFEX fundamental types](#common-types-that-are-trivially-mapped-tofrom-ifex-fundamental-types)  
         - [(Direction Other -> IFEX)](#direction-other--ifex)  
@@ -7,7 +8,6 @@ Documentation generated from: 22c154527793513e21a2914668cd4a0f9275db3f
     - [Additional types available in some programming environments](#additional-types-available-in-some-programming-environments)  
     - [Opaque (special) type](#opaque-special-type)  
 - [Comments on pointers, references, etc.](#comments-on-pointers-references-etc)  
-- [Mapping documents {#mapping-documents}](#mapping-documents-mappingdocuments)  
 - [Generators](#generators)  
     - [Configurability - when to create a layer?](#configurability--when-to-create-a-layer)  
     - [Writing a generator](#writing-a-generator)  

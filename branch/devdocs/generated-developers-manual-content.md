@@ -1,4 +1,14 @@
-This manual is useful primarily for implementation of new IFEX tools, but occasionally also for people who develop software that uses artifacts that are generated to/from IFEX.   Before reading the developers' manual, make sure you have read the [IFEX Core IDL specification](ifex-specification.md) and [FAQ](./FAQ.md) first.
+This manual is useful primarily for implementation of new IFEX tools, but sometimes also for people who use the tools and then develop software based on the output that was generated to/from IFEX.   Before reading the developers' manual, make sure you have read the [IFEX Core IDL specification](ifex-specification.md) and [FAQ](./FAQ.md).
+
+# Mapping documents
+
+By "mapping" we mean to describe how we may interpret and ultimately translate IFEX to or from another interface description environment, or a particular output format (computing environment, protocol, programming language, etc.).  It can be such things as listing the "features" of IFEX and seeing how we may implement those features in the target environment (or the opposite direction, listing the features of the other environment and how IFEX can meet them).
+
+General documents describe our general strategy for approaching mappings.
+
+Individual documents describe particular target (or source) standards.
+
+- [D-Bus](./static-mapping-dbus.md)
 
 # Datatype mapping
 
@@ -39,7 +49,7 @@ Consider this an example of how we may represent things on a data protocol that 
 | IFEX Fundamental type | Explanation |  If Other does *not* support the type |
 | --------------------- | -- | ---------------------------------- | ------------------------------------------------------------------|
 | `set` |  A collection of unique elements, where each element occurs only once, and usually, the order does not matter | A set can simply be represented by a collection (array). That values shall be unique is either known and enforced on both sides of a server/client interface, and/or after data-transfer an actual Set type might be used in the rest of the program if the programming language supports it |
-| `map` |  A collection of key-value pairs, where each key is associated with a value. | A map an be represented as a linear array of Variant (alternating keys and values), or better structured as an array of 2-tuples (pairs).  A tuple in turn is also either a 2-array, or a struct with two members.  The most natural choice is to represent it as an array of struct with one key and one value member, using Variant types, if either type is unknown. |
+| `map` |  A collection of key-value pairs, where each key is associated with a value. | A map can be represented as a linear array of Variant (alternating keys and values), or better structured as an array of 2-tuples (pairs).  A tuple in turn is also either a 2-array, or a struct with two members (key and value).  One natural choice is to represent it as an array of such structs. Either key or value could be a Variant types if that type is variable or unknown. |
 | `opaque` | An IFEX representation of a data type that is either not possible or not desired to describe in further detail | Can be equivalent to a void-pointer (low-level C), Variant<> type (where supported), or array-of-bytes.  When transferring Opaque across a data protocol, it might be `Variant` if supported, or simply be an array-of-bytes, where the server and client knows how to re-interpret the value on the other side |
 | `variant` | ariant| An IFEX representation of a "union" or "variant" type - in other words a type that contains one (any) choice out of a list of multiple types.  In programming environments that support Variant types it is not an unknown binary-blob, but the _actual_ type of the object is known underneath.  Like opaque, there are several possible ways to creatively represent variant if the target environment does not have the type built in.  If the client and server side can be trusted to both convert the serialized representation back to the correct Variant type, then an anonymous "blob" (array of bytes) can of course be used for the data transfer.  If not, more creative solutions need to be created where we represent both the data, and the _actual_ type information explicitly (in a struct for example).|
 
@@ -61,16 +71,6 @@ If a system includes some data type that does not fit into any of the generalize
 The core interface description (IDL) does not prescribe how to transfer an argument to a method, only the type of the argument, and its in/out expectation.  In a lot of cases, IFEX will be used in an over-the-network IPC or RPC scenario where the question of pointers/reference is moot.  However, when used to represent a programming interface it may be worthwhile to comment on this.  From the general IFEX description we can deduce that a pass-by-value behavior is generally assumed for "in" parameters.  However, it is still up to the target environment code generator to decide if language features like pointers and references make sense.  The exact translation might be controlled by deployment layer information.  For example, some target environments could make use of immutable (const) references in the generated code for "in" parameters, and pointers or references for "out" parameters.  In either of these cases there is still no need to mention a specific reference type in the IFEX interface description - it is all decided in the particular target environment mapping.  This is a long way of saying that the IFEX core IDL does not need to support the concept of pointers or references, but in particular cases code-generators might use certain layer types to control if such features are used.
 
 
-
-# Mapping documents {#mapping-documents}
-
-By "mapping" we mean to describe how we may interpret and ultimately translate IFEX to or from another interface description environment, or a particular output format (computing environment, protocol, programming language, etc.).  It can be such things as listing the "features" of IFEX and seeing how we may implement those features in the target environment (or the opposite direction, listing the features of the other environment and how IFEX can meet them).
-
-General documents describe our general strategy for approaching mappings.
-
-Individual documents describe particular target (or source) standards.
-
-- [D-Bus](./static-mapping-dbus.md)
 
 # Generators
 
@@ -169,9 +169,7 @@ e.g.
 
 \* If more than one template matches the node name (don't do that, unsupported) then the last found template will be used.
 
-**NOTE:** It is not required to specify a separate template for every type.
-
-For simple cases, a single top-level AST template might even suffice for the whole generation (see further description under **Variable use in templates**).
+**NOTE:** It is not required to specify a separate template for every type as long as one of the upper level templates handle all necessary cases.  For simple cases, a single top-level AST template could even suffice for the whole generation and there are some such examples in the templates directory. (Also see further description under **Variable use in templates**).
 
 ## The gen() function
 
