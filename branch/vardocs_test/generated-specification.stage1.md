@@ -307,6 +307,10 @@ required to be supported at the same time.
 <!-- Types, constraints/ranges, type resolution in namespaces. -->
 # FUNDAMENTAL TYPES
 
+----
+
+These are the supported fundamental (primitive) types, as generated from the source code model.  These primitive types are identical to the types used in the VSS (Vehicle Signal Specification) model, and of course they should easily match typical datatypes in other interface description systems.
+
 |Name|Description|Min value|Max value|
 |----|-----------|---------|---------|
 |uint8 | unsigned 8-bit integer | 0 | 255|

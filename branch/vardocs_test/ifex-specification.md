@@ -13,7 +13,7 @@ License: Creative Commons Attribution 4.0 International
 License (CC-BY-4.0), described [here](https://creativecommons.org/licenses/by/4.0/)
 
 <!-- Heading and TOC -->
-Documentation generated from: 63b655a5b92a189b94cfc4bd184a13d3dc5682e2
+Documentation generated from: 7404cf08e4c8767d4f3a54dded669f9520d26cf0
 
 - [FEATURES](#features)  
     - [Features that are not included _in the core IDL_, but worth describing](#features-that-are-not-included-in-the-core-idl-but-worth-describing)  
@@ -387,6 +387,10 @@ required to be supported at the same time.
 
 <!-- Types, constraints/ranges, type resolution in namespaces. -->
 # FUNDAMENTAL TYPES
+
+----
+
+These are the supported fundamental (primitive) types, as generated from the source code model.  These primitive types are identical to the types used in the VSS (Vehicle Signal Specification) model, and of course they should easily match typical datatypes in other interface description systems.
 
 |Name|Description|Min value|Max value|
 |----|-----------|---------|---------|
