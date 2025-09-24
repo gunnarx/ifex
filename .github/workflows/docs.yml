@@ -26,10 +26,9 @@ jobs:
       id: pages
       uses: actions/configure-pages@v5
 
-    - name: Debug directory
-      run: |
-        ls -la docs
-      
+    - name: Set up Docker Compose
+      uses: docker/setup-compose-action@v1
+
     - name: Build documentation
       run: |
         cd docs
