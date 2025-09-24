@@ -29,7 +29,7 @@ dev:
 	@echo "   1. Generate type defintions based on the current specification"
 	@echo "   2. Start VitePress dev server on http://localhost:5173"
 	@echo ""
-	docker-compose up --build vitepress
+	docker compose up --build vitepress
 
 build:
 	@echo "🏗️ Building IFEX documentation for production..."
@@ -37,22 +37,22 @@ build:
 	@echo "   1. Generate fresh documentation"
 	@echo "   2. Build static VitePress site"
 	@echo ""
-	docker-compose run --rm generate-docs
-	docker-compose run --rm vitepress npm run docs:build
+	docker compose run --rm generate-docs
+	docker compose run --rm vitepress npm run docs:build
 
 generate:
 	@echo "📝 Generating documentation only..."
-	docker-compose run --rm generate-docs
+	docker compose run --rm generate-docs
 
 preview: build
 	@echo "� Starting IFEX documentation preview server..."
 	@echo "   Serving built documentation on http://localhost:4173"
 	@echo ""
-	docker-compose up preview
+	docker compose up preview
 
 clean:
 	@echo "🧹 Cleaning up generated files and Docker resources..."
 	rm -f specification/generated-types.generated.md specification/ast-structure.generated.md
-	docker-compose down --volumes --remove-orphans
-	docker-compose build --no-cache
+	docker compose down --volumes --remove-orphans
+	docker compose build --no-cache
 
