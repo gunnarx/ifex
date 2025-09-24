@@ -26,6 +26,9 @@ jobs:
       id: pages
       uses: actions/configure-pages@v5
 
+    - name: Debug directory
+      run: |
+        ls -la docs
       
     - name: Build documentation
       run: |
