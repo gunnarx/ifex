@@ -35,10 +35,10 @@ jobs:
         make build
         
     - name: Upload documentation artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-pages-artifact@v4
       with:
-        name: documentation
         path: docs/.vitepress/dist/
+
   deploy:
     runs-on: [ubuntu-latest]
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
